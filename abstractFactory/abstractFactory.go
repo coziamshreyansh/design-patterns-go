@@ -2,6 +2,8 @@ package abstractFactory
 
 import "fmt"
 
+// abstractFactory -> its just a factory pattern with collection of objects not just one
+
 // dark theme -> dark button and check box objects wil be created
 
 // light theme -> dark button and check box objects wil be created

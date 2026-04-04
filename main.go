@@ -4,6 +4,7 @@ import (
 	"design-patterns-go/abstractFactory"
 	"design-patterns-go/constants"
 	"design-patterns-go/factory"
+	"design-patterns-go/singleton"
 	"fmt"
 )
 
@@ -39,7 +40,14 @@ func abstractFactoryPatternDriver() {
 	checkbox.Render()
 }
 
+func singletonPatternDriver() {
+	instance := singleton.GetInstance()
+	instance.Info("Success")
+	instance.Error("Failure")
+}
 func main() {
+	// basically all creational patterns are a way of writing if else in diff manner
 	// factoryPatternDriver()
-	abstractFactoryPatternDriver()
+	// abstractFactoryPatternDriver()
+	singletonPatternDriver()
 }
