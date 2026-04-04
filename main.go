@@ -2,6 +2,7 @@ package main
 
 import (
 	"design-patterns-go/abstractFactory"
+	"design-patterns-go/builder"
 	"design-patterns-go/constants"
 	"design-patterns-go/factory"
 	"design-patterns-go/singleton"
@@ -45,9 +46,19 @@ func singletonPatternDriver() {
 	instance.Info("Success")
 	instance.Error("Failure")
 }
+
+func builderPatternDriver() {
+	builderInstance := builder.CreateUserBuilderInstance()
+	builderInstance.WithMobile("678900000")
+	builderInstance.WithEmail("shre@gmi.l")
+	builderInstance.WithName("shreyansh")
+	user := builderInstance.Build()
+	fmt.Println("User object:- ", user)
+}
 func main() {
 	// basically all creational patterns are a way of writing if else in diff manner
 	// factoryPatternDriver()
 	// abstractFactoryPatternDriver()
-	singletonPatternDriver()
+	// singletonPatternDriver()
+	builderPatternDriver()
 }
