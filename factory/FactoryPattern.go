@@ -5,6 +5,8 @@ import (
 	"fmt"
 )
 
+// basically all creational patterns are a way of writing if else in diff manner
+
 type Notification interface {
 	Send(to, message string) error
 }
