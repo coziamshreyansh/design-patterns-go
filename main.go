@@ -5,6 +5,7 @@ import (
 	"design-patterns-go/adapter"
 	"design-patterns-go/builder"
 	"design-patterns-go/constants"
+	"design-patterns-go/decorator"
 	"design-patterns-go/factory"
 	"design-patterns-go/singleton"
 	"fmt"
@@ -63,11 +64,20 @@ func adapterPatternDriver() {
 	paymentAdapter = adapter.NewPaymentServiceAdapter(existingService)
 	paymentAdapter.ProcessPayment(100000)
 }
+
+func decoratorPatternDriver() {
+	base := &decorator.MessageNotifier{}
+	smsDecorator := &decorator.SmsDecorator{NotifierDecorator: decorator.NotifierDecorator{Wrapped: base}}
+	emailDecorator := &decorator.EmailDecorator{NotifierDecorator: decorator.NotifierDecorator{Wrapped: smsDecorator}}
+	emailDecorator.Send("Heyyyy!")
+}
+
 func main() {
 	// basically all creational patterns are a way of writing if else in diff manner
 	// factoryPatternDriver()
 	// abstractFactoryPatternDriver()
 	// singletonPatternDriver()
 	// builderPatternDriver()
-	adapterPatternDriver()
+	// adapterPatternDriver()
+	decoratorPatternDriver()
 }
