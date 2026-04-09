@@ -7,7 +7,9 @@ import (
 	"design-patterns-go/constants"
 	"design-patterns-go/decorator"
 	"design-patterns-go/factory"
+	"design-patterns-go/observer"
 	"design-patterns-go/singleton"
+	"design-patterns-go/strategy"
 	"fmt"
 )
 
@@ -72,6 +74,22 @@ func decoratorPatternDriver() {
 	emailDecorator.Send("Heyyyy!")
 }
 
+func strategyPatternDriver() {
+	shoppingCart := strategy.ShoppingCart{}
+	shoppingCart.SetPaymentStrategy(&strategy.CardPayment{})
+	shoppingCart.Checkout(100.00)
+}
+
+func observerPatternDriver() {
+	newsAgency := observer.NewsAgency{}
+
+	newsChannel1 := observer.NewNewsChannel("Shreyansh")
+	newsChannel2 := observer.NewNewsChannel("Shanx")
+	newsAgency.AddObserver(newsChannel1)
+	newsAgency.AddObserver(newsChannel2)
+
+	newsAgency.SetNews("Breaking news, o lalalalala")
+}
 func main() {
 	// basically all creational patterns are a way of writing if else in diff manner
 	// factoryPatternDriver()
@@ -79,5 +97,7 @@ func main() {
 	// singletonPatternDriver()
 	// builderPatternDriver()
 	// adapterPatternDriver()
-	decoratorPatternDriver()
+	// decoratorPatternDriver()
+	// strategyPatternDriver()
+	observerPatternDriver()
 }
