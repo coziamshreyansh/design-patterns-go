@@ -99,5 +99,5 @@ func main() {
 	// adapterPatternDriver()
 	// decoratorPatternDriver()
 	// strategyPatternDriver()
-	observerPatternDriver()
+	// observerPatternDriver()
 }
